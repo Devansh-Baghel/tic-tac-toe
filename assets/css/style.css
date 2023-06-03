@@ -52,4 +52,12 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
+
+.x {
+  color: var(--purple);
+}
+
+.o {
+  color: var(--red);
+}
 /*# sourceMappingURL=style.css.map */
