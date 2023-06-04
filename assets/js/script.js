@@ -3,6 +3,7 @@ const o = "o";
 const empty = "-";
 
 const gameBoardDisplay = document.querySelector(".board");
+const infoText = document.querySelector("span");
 
 // const playerFactory = (name, marker) => {
 	// return { name, marker };
@@ -44,9 +45,11 @@ const addMarker = (cell) => {
 	cell.classList.add(game.turn);
 	cell.innerText = game.turn;
 	console.table(game.board);
-
+	
+	
 	// Switch turns
 	game.turn = (game.turn === x) ? o : x;
+	infoText.innerText = game.turn.toUpperCase();
 	
 };
 
