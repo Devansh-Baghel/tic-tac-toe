@@ -6,9 +6,6 @@ const gameBoardDisplay = document.querySelector(".board");
 const infoText = document.querySelector("span");
 const infoTextHeading = document.querySelector("h1");
 
-// const playerFactory = (name, marker) => {
-	// return { name, marker };
-// }
 
 let game = {
 	board: [
@@ -18,8 +15,6 @@ let game = {
 	],
 
 	turn: "x",
-	// x: playerFactory("camus", "x"),
-	// o: playerFactory("sartre", "0")
 }
 
 const displayBoard = () => {
