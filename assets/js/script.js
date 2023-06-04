@@ -26,14 +26,7 @@ const displayBoard = () => {
 		gameBoardDisplay.appendChild(cell);
 		cell.classList.add(i);
 		cell.innerText = game.board[i];
-
-		if(game.board[i] === "x"){
-			cell.classList.add("x");
-		} else if(game.board[i] === "o"){
-			cell.classList.add("o");
-		} else{
-			cell.classList.add("empty");
-		}
+		cell.classList.add("empty")
 	}
 }
 
@@ -42,6 +35,14 @@ displayBoard()
 const addMarker = (cell) => {
 	const cellIndex = cell.classList[0];
 	game.board[cellIndex] = game.turn;
+
+	if (cell.classList[1] !== "empty"){
+		return
+	}
+
+	cell.classList.remove("empty");
+	cell.classList.add(game.turn);
+	cell.innerText = game.turn;
 	console.table(game.board);
 
 	// Switch turns
@@ -49,7 +50,7 @@ const addMarker = (cell) => {
 	
 };
 
-const cells = document.querySelectorAll(".x, .o, .empty");
+const cells = document.querySelectorAll("p");
 cells.forEach((cell) => {
 	cell.addEventListener("click", () => {addMarker(cell)});
 })

@@ -6,7 +6,7 @@
   --blue: ;
   --purple: #9575CD;
   --white: white;
-  --font: 'Varela Round', sans-serif;
+  --font: "Varela Round", sans-serif;
 }
 
 * {
@@ -17,38 +17,24 @@
 body {
   font-family: var(--font);
   padding-top: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .board {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-rows: (1fr)[3];
-  -ms-grid-columns: (1fr)[3];
-      grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+  grid-template: repeat(3, 1fr)/repeat(3, 1fr);
   gap: 10px;
-  width: 90%;
-  max-width: 500px;
+  width: min(90%, 500px);
   aspect-ratio: 1/1;
 }
-
 .board * {
   background-color: var(--green);
   font-size: 80px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .x {
@@ -59,9 +45,7 @@ body {
   color: var(--red);
 }
 
-.x:hover,
-.o:hover {
-  cursor: pointer;
+p:hover {
   opacity: 70%;
-}
-/*# sourceMappingURL=style.css.map */
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */
