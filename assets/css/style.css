@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&family=Varela+Round&display=swap");
 :root {
   --green: #AED581;
-  --red: #EF9A9A;
+  --pink: #EF9A9A;
+  --red: #EF5350;
   --blue: ;
   --purple: #9575CD;
   --white: white;
@@ -15,6 +16,7 @@
 
 body {
   font-family: var(--font);
+  padding-top: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,19 +31,15 @@ body {
   -ms-grid-rows: (1fr)[3];
   -ms-grid-columns: (1fr)[3];
       grid-template: repeat(3, 1fr)/repeat(3, 1fr);
-  justify-items: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 600px;
-  height: 600px;
+  gap: 10px;
+  width: 90%;
+  max-width: 500px;
+  aspect-ratio: 1/1;
 }
 
 .board * {
   background-color: var(--green);
   font-size: 80px;
-  width: 190px;
-  height: 190px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,5 +57,11 @@ body {
 
 .o {
   color: var(--red);
+}
+
+.x:hover,
+.o:hover {
+  cursor: pointer;
+  opacity: 70%;
 }
 /*# sourceMappingURL=style.css.map */

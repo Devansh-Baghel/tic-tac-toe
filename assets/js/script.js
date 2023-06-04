@@ -1,37 +1,55 @@
-// const x = "&times;";
 const x = "x";
 const o = "o";
+const empty = "-";
 
 const gameBoardDisplay = document.querySelector(".board");
 
-// Main gameboard obj
-let gameBoard = {
-	board: [x, o, x, o],
+// const playerFactory = (name, marker) => {
+	// return { name, marker };
+// }
+
+let game = {
+	board: [
+		empty, empty, empty,
+		empty, empty, empty,
+		empty, empty, empty
+	],
+
+	turn: "x",
+	// x: playerFactory("camus", "x"),
+	// o: playerFactory("sartre", "0")
 }
 
-// Factory for creating players
-const playerFactory = (name) => {
-	return { name };
-}
-
-// Players
-const camus = playerFactory("camus");
-const sartre = playerFactory("sartre");
-
-// Function of display board on html
 const displayBoard = () => {
-	for(i in gameBoard.board){
+	for(i in game.board){
 		const cell = document.createElement("p");
 		gameBoardDisplay.appendChild(cell);
 		cell.classList.add(i);
-		cell.innerText = gameBoard.board[i];
+		cell.innerText = game.board[i];
 
-		if(gameBoard.board[i] === "x"){
+		if(game.board[i] === "x"){
 			cell.classList.add("x");
-		} else{
+		} else if(game.board[i] === "o"){
 			cell.classList.add("o");
+		} else{
+			cell.classList.add("empty");
 		}
 	}
 }
 
 displayBoard()
+
+const addMarker = (cell) => {
+	const cellIndex = cell.classList[0];
+	game.board[cellIndex] = game.turn;
+	console.table(game.board);
+
+	// Switch turns
+	game.turn = (game.turn === x) ? o : x;
+	
+};
+
+const cells = document.querySelectorAll(".x, .o, .empty");
+cells.forEach((cell) => {
+	cell.addEventListener("click", () => {addMarker(cell)});
+})
