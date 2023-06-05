@@ -1,6 +1,5 @@
 const x = "x";
 const o = "o";
-const empty = "";
 
 const gameBoardDisplay = document.querySelector(".board");
 const infoText = document.querySelector("span");
@@ -17,15 +16,6 @@ let game = {
 	turn: "x",
 }
 
-const displayBoard = () => {
-	for(i in game.board){
-		const cell = document.createElement("p");
-		gameBoardDisplay.appendChild(cell);
-		cell.classList.add(i);
-	}
-}
-
-displayBoard()
 
 const addMarker = (cell) => {
 	const cellIndex = cell.classList[0];
