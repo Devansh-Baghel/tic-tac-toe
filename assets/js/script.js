@@ -9,9 +9,9 @@ const infoTextHeading = document.querySelector("h1");
 
 let game = {
 	board: [
-		empty, empty, empty,
-		empty, empty, empty,
-		empty, empty, empty
+		1, 2, 3,
+		4, 5, 6,
+		7, 8, 9
 	],
 
 	turn: "x",
@@ -22,7 +22,6 @@ const displayBoard = () => {
 		const cell = document.createElement("p");
 		gameBoardDisplay.appendChild(cell);
 		cell.classList.add(i);
-		cell.innerText = game.board[i];
 	}
 }
 
@@ -45,22 +44,23 @@ const addMarker = (cell) => {
 	console.table(game.board);
 
 	// Logic to check for game over
+	const includesAny = [1,2,3,4,5,6,7,8,9].some(element => game.board.includes(element));
 	// This is a shitty way to do this i know... im sorry... i'll fix it later
 	if (
-		(game.board[0] === game.board[1] && game.board[1] === game.board[2] && game.board[0] !== empty && game.board[1] !== empty && game.board[2] !== empty) || // Check for horizontal win
-		(game.board[3] === game.board[4] && game.board[4] === game.board[5] && game.board[3] !== empty && game.board[4] !== empty && game.board[5] !== empty) || // Check for horizontal win
-		(game.board[6] === game.board[7] && game.board[7] === game.board[8] && game.board[6] !== empty && game.board[7] !== empty && game.board[8] !== empty) || // Check for horizontal win
-		(game.board[0] === game.board[3] && game.board[3] === game.board[6] && game.board[0] !== empty && game.board[3] !== empty && game.board[6] !== empty) || // Check for vertical win
-		(game.board[1] === game.board[4] && game.board[4] === game.board[7] && game.board[1] !== empty && game.board[4] !== empty && game.board[7] !== empty) || // Check for vertical win
-		(game.board[2] === game.board[5] && game.board[5] === game.board[8] && game.board[2] !== empty && game.board[5] !== empty && game.board[8] !== empty) || // Check for vertical win
-		(game.board[0] === game.board[4] && game.board[4] === game.board[8] && game.board[0] !== empty && game.board[4] !== empty && game.board[8] !== empty) || // Check for diagonal win
-		(game.board[2] === game.board[4] && game.board[4] === game.board[6] && game.board[2] !== empty && game.board[4] !== empty && game.board[6] !== empty) // Check for diagonal win
+		(game.board[0] === game.board[1] && game.board[1] === game.board[2]) || // Check for horizontal win
+		(game.board[3] === game.board[4] && game.board[4] === game.board[5]) || // Check for horizontal win
+		(game.board[6] === game.board[7] && game.board[7] === game.board[8]) || // Check for horizontal win
+		(game.board[0] === game.board[3] && game.board[3] === game.board[6]) || // Check for vertical win
+		(game.board[1] === game.board[4] && game.board[4] === game.board[7]) || // Check for vertical win
+		(game.board[2] === game.board[5] && game.board[5] === game.board[8]) || // Check for vertical win
+		(game.board[0] === game.board[4] && game.board[4] === game.board[8]) || // Check for diagonal win
+		(game.board[2] === game.board[4] && game.board[4] === game.board[6]) // Check for diagonal win
 	) {
 		infoTextHeading.innerText = `Game Over! ${game.turn.toUpperCase()} WON!`;
 		gameBoardDisplay.classList.add("over");
 	}
 
-	else if (!game.board.includes(empty)){
+	else if (!includesAny){
 		infoTextHeading.innerText = `It's a Tie!`
 	}
 	
