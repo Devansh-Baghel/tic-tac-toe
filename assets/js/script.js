@@ -1,6 +1,6 @@
 const x = "x";
 const o = "o";
-const empty = "-";
+const empty = "";
 
 const gameBoardDisplay = document.querySelector(".board");
 const infoText = document.querySelector("span");

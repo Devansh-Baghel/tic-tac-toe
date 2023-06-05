@@ -1,11 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&family=Varela+Round&display=swap");
 :root {
   --green: #AED581;
+  --light-green: #DCEDC8;
   --pink: #EF9A9A;
   --red: #EF5350;
-  --blue: ;
   --purple: #9575CD;
   --white: white;
+  --dracula-Background: #282a36;
+  --dracula-CurrentLine: #44475a;
+  --dracula-Foreground: #f8f8f2;
+  --dracula-Comment: #6272a4;
+  --dracula-Cyan: #8be9fd;
+  --dracula-Green: #50fa7b;
+  --dracula-Orange: #ffb86c;
+  --dracula-Pink: #ff79c6;
+  --dracula-Purple: #bd93f9;
+  --dracula-Red: #ff5555;
+  --dracula-Yellow: #f1fa8c;
   --font: "Varela Round", sans-serif;
 }
 
@@ -16,6 +27,7 @@
 
 body {
   font-family: var(--font);
+  background-color: var(--light-green);
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
@@ -24,6 +36,11 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: var(--dracula-Comment);
 }
 
 .board {
@@ -39,6 +56,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 30px;
 }
 
 .x {
