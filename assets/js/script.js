@@ -59,6 +59,10 @@ const addMarker = (cell) => {
 		infoTextHeading.innerText = `Game Over! ${game.turn.toUpperCase()} WON!`;
 		gameBoardDisplay.classList.add("over");
 	}
+
+	else if (!game.board.includes(empty)){
+		infoTextHeading.innerText = `It's a Tie!`
+	}
 	
 	
 	// Switch turns
