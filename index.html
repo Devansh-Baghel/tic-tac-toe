@@ -12,6 +12,19 @@
 	<script src="./assets/js/script.js" defer></script>
 </head>
 <body>
+	<dialog class="player-select" open>
+		<form action="" method="dialog">
+			<input type="text" name="player1" id="player1" placeholder="Player 1's Name" aria-placeholder="Player 1's Name" required>
+			<input type="text" name="player2" id="player2" placeholder="Player 2's Name" aria-placeholder="Player 2's Name" required>
+			<button type="submit" class="next-button" id="next-button">Next &rArr; </button>
+		</form>
+	</dialog>
+	
+	<!-- <dialog class="marker-select">
+		<input type="text" name="player1" id="player1" placeholder="Player 1's Name">
+		<input type="text" name="player2" id="player2" placeholder="Player 2's Name">
+		<button class="next-button" id="next-button">Next</button>
+	</dialog> -->
 	<h1><span>X</span>'s Turn</h1>
 	<div class="board">
 		<p class="0"></p>

@@ -6,7 +6,6 @@
 	--light-green: #DCEDC8;
 	--pink: #EF9A9A;
 	--red: #EF5350;
-	// --blue: ;
 	--purple: #9575CD;
 	--white: white;
 
@@ -25,28 +24,86 @@
 
 	// --font: 'Geologica', sans-serif;
 	--font: 'Varela Round', sans-serif;
+
+	// Transition Time
+	--transition-time: 300ms;
+}
+*,
+*::before,
+*::after{
+	box-sizing: border-box;
 }
 
-*{
+*:not(dialog){
 	margin: 0;
 	padding: 0;
+}
+
+button:hover{
+	cursor: pointer;
+}
+
+dialog{
+	width: 100vw;
+	height: 100vh;
+	border: none;
+}
+
+.player-select{
+	form{
+		display: flex;
+		gap: 1rem;
+		flex-direction: column;
+		align-items: center;
+		align-content: center;
+	}
+
+	padding-top: 30vh;
+	background-color: var(--light-green);
+
+	input{
+		width: min(400px, 80%);
+		height: 60px;
+		border-radius: 20px;
+		border: none;
+		padding-left: 20px;
+		font-size: 20px;
+	}
+
+	input:focus{
+		outline: 2px solid var(--green);
+	}
+
+	button{
+		margin-top: 2rem;
+		font-size: 26px;
+		font-weight: 700;
+		padding: 20px 60px;
+		border: none;
+		border-radius: 20px;
+		background-color: var(--dracula-CurrentLine);
+		color: white;
+		transition: ease-in-out var(--transition-time);
+
+	}
+
+	button:hover{
+		background-color: var(--green);
+	}
 }
 
 body{
 	font-family: var(--font);
 	background-color: var(--light-green);
 
-	padding-top: 1rem;
-
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	user-select: none;
-
 }
 
 h1{
 	margin-bottom: 10px;
+	margin-top: 1rem;
 	color: var(--dracula-Comment);
 }
 
@@ -67,6 +124,7 @@ h1{
 		align-items: center;
 
 		border-radius: 30px;
+		user-select: none;
 	}
 }
 
