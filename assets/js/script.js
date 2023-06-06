@@ -2,11 +2,11 @@ const x = "x";
 const o = "o";
 
 const playerSelectDialog = document.querySelector(".player-select");
+const playerSelectSubmitButton = document.querySelector("#next-button");
 const gameBoardDisplay = document.querySelector(".board");
 const cells = document.querySelectorAll("p");
 const infoText = document.querySelector("span");
 const infoTextHeading = document.querySelector("h1");
-// playerSelectDialog.showModal();
 
 
 let game = {
@@ -18,6 +18,8 @@ let game = {
 
 	turn: "x",
 }
+
+playerSelectSubmitButton.addEventListener("submit", () => { playerSelectDialog.close() });
 
 
 const addMarker = (cell) => {
