@@ -67,6 +67,11 @@ h1 {
   color: var(--red);
 }
 
+.x:hover,
+.o:hover {
+  cursor: not-allowed;
+}
+
 p:hover {
   opacity: 70%;
   cursor: pointer;
