@@ -11,7 +11,7 @@ const markerSelectSubmitButton = document.querySelector("#marker-select-submit")
 
 const gameBoardDisplay = document.querySelector(".board");
 const cells = document.querySelectorAll("p");
-const infoText = document.querySelector("span");
+const infoText = document.querySelector("#turn-indicator");
 const infoTextHeading = document.querySelector("h1");
 
 
@@ -39,13 +39,16 @@ const addPlayer = () => {
 	playerSelectDialog.close();
 	document.querySelector("#player1-marker-select").innerText = game.playerOne.name;
 	document.querySelector("#player2-marker-select").innerText = game.playerTwo.name;
-	markerSelectDialog.showModal();
+	markerSelectDialog.show();
 }
 
 const addMarkerToPlayer = () => {
 	document.querySelector("[name=player1-radio]").checked ? game.playerOne.marker = "x" : game.playerOne.marker = "o";
 	document.querySelector("[name=player2-radio]").checked ? game.playerTwo.marker = "x" : game.playerTwo.marker = "o";
 	markerSelectDialog.close();
+	
+	// For showing who's turn it is in the very begining of the game
+	infoText.innerText = (game.playerOne.marker === "x") ? game.playerOne.name : game.playerTwo.name;
 }
 
 const addMarkerToBoard = (cell) => {
@@ -70,19 +73,20 @@ const addMarkerToBoard = (cell) => {
 		(game.board[0] === game.board[4] && game.board[4] === game.board[8]) || // Check for diagonal win
 		(game.board[2] === game.board[4] && game.board[4] === game.board[6]) // Check for diagonal win
 		) {
-			infoTextHeading.innerText = `Game Over! ${game.turn.toUpperCase()} WON!`;
+			let winner = (game.turn === game.playerOne.marker) ? game.playerOne : game.playerTwo;
+			infoTextHeading.innerText = `Game Over! ${winner.name} WON!`;
 			gameBoardDisplay.classList.add("over");
-	}
-	else if (!includesAny){
-		infoTextHeading.innerText = `It's a Tie!`
-	}
+		}
+		else if (!includesAny){
+			infoTextHeading.innerText = `It's a Tie!`
+		}
 	
 	swapTurns();
 };
 
 const swapTurns = () => {
 	game.turn = (game.turn === x) ? o : x;
-	infoText.innerText = game.turn.toUpperCase();
+	infoText.innerText = (game.turn === game.playerOne.marker) ? game.playerOne.name : game.playerTwo.name;
 }
 
 playerSelectForm.addEventListener("submit", e => {

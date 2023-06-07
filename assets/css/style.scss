@@ -84,6 +84,10 @@ body{
 		outline: 2px solid var(--green);
 	}
 
+	::backdrop{
+		background-color: var(--light-green);
+	}
+
 }
 
 button{

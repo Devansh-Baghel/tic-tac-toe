@@ -72,6 +72,12 @@ body {
 .player-select input:focus {
   outline: 2px solid var(--green);
 }
+.player-select ::-webkit-backdrop {
+  background-color: var(--light-green);
+}
+.player-select ::backdrop {
+  background-color: var(--light-green);
+}
 
 button {
   margin-top: 2rem;
