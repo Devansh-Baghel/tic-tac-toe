@@ -42,6 +42,14 @@ dialog {
   border: none;
 }
 
+body {
+  font-family: var(--font);
+  background-color: var(--light-green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .player-select {
   padding-top: 30vh;
   background-color: var(--light-green);
@@ -64,7 +72,8 @@ dialog {
 .player-select input:focus {
   outline: 2px solid var(--green);
 }
-.player-select button {
+
+button {
   margin-top: 2rem;
   font-size: 26px;
   font-weight: 700;
@@ -75,16 +84,51 @@ dialog {
   color: white;
   transition: ease-in-out var(--transition-time);
 }
-.player-select button:hover {
+
+button:hover {
   background-color: var(--green);
 }
 
-body {
-  font-family: var(--font);
+.marker-select {
   background-color: var(--light-green);
+}
+.marker-select form {
+  padding-top: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.marker-select form > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.marker-select form label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 46px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.marker-select form input {
+  visibility: hidden;
+}
+.marker-select form input[type=radio]:checked + label {
+  background-color: var(--green);
+  border-radius: 10px;
+}
+.marker-select form h2 {
+  display: inline;
+  font-size: 30px;
+  color: var(--dracula-CurrentLine);
 }
 
 h1 {

@@ -22,18 +22,23 @@
 	
 	<dialog class="marker-select" id="marker-select-dialog">
 		<form action="" method="dialog">
-			<h2><span id="player1-marker-select"></span>'s Marker: </h2>
-			<input type="radio" value="player1-x" name="player1-radio" required>
-			<label for="player1-x" class="x">X</label>
-			<input type="radio" value="player1-o" name="player1-radio">
-			<label for="player1-o" class="o">O</label>
+			<div class="select-for-player1">
+				<h2><span id="player1-marker-select"></span>'s Marker: </h2>
+				<input type="radio" id="player1-x" name="player1-radio" required>
+				<label for="player1-x" class="x">X</label>
+				<input type="radio" id="player1-o" name="player1-radio">
+				<label for="player1-o" class="o">O</label>
+			</div>
 			
-			<h2><span id="player2-marker-select"></span>'s Marker: </h2>
-			<input type="radio" value="player2-x" name="player2-radio" required>
-			<label for="player2-x" class="x">X</label>
-			<input type="radio" value="player2-o" name="player2-radio">
-			<label for="player2-o" class="o">O</label>
-			<button class="next-button" id="marker-select-submit" type="submit">Next</button>
+			<div class="select-for-player2">
+				<h2><span id="player2-marker-select"></span>'s Marker: </h2>
+				<input type="radio" id="player2-x" name="player2-radio" required>
+				<label for="player2-x" class="x">X</label>
+				<input type="radio" id="player2-o" name="player2-radio">
+				<label for="player2-o" class="o">O</label>
+			</div>
+
+			<button class="next-button" id="marker-select-submit" type="submit">Submit</button>
 		</form>
 	</dialog>
 
