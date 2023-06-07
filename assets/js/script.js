@@ -2,8 +2,11 @@ const x = "x";
 const o = "o";
 
 const playerSelectDialog = document.querySelector(".player-select");
+const playerSelectForm = document.querySelector(".player-select form");
 const playerSelectSubmitButton = document.querySelector("#next-button");
 const markerSelectDialog = document.querySelector(".marker-select");
+
+
 const gameBoardDisplay = document.querySelector(".board");
 const cells = document.querySelectorAll("p");
 const infoText = document.querySelector("span");
@@ -23,6 +26,8 @@ let game = {
 
 
 const addPlayer = () => {
+	game.playerOne = document.querySelector("#player1").value;
+	game.playerTwo = document.querySelector("#player2").value;
 	playerSelectDialog.close();
 	markerSelectDialog.showModal();
 }
@@ -65,8 +70,11 @@ const swapTurns = () => {
 	infoText.innerText = game.turn.toUpperCase();
 }
 
-playerSelectSubmitButton.addEventListener("submit", addPlayer);
+playerSelectForm.addEventListener("submit", e => {
+	e.preventDefault();
+	addPlayer();
+});
 
-cells.forEach((cell) => {
+cells.forEach(cell => {
 	cell.addEventListener("click", () => {addMarker(cell)}, {once: true});
 })
