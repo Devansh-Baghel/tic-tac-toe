@@ -126,6 +126,10 @@ h1{
 		border-radius: 30px;
 		user-select: none;
 	}
+	.x:hover,
+	.o:hover{
+		cursor: not-allowed;
+	}
 }
 
 .x{
@@ -135,10 +139,7 @@ h1{
 	color: var(--red);
 }
 
-.x:hover,
-.o:hover{
-	cursor: not-allowed;
-}
+
 
 p:hover{
 	opacity: 70%;

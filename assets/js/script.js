@@ -5,6 +5,8 @@ const playerSelectDialog = document.querySelector(".player-select");
 const playerSelectForm = document.querySelector(".player-select form");
 const playerSelectSubmitButton = document.querySelector("#next-button");
 const markerSelectDialog = document.querySelector(".marker-select");
+const markerSelectForm = document.querySelector("#marker-select-dialog form");
+const markerSelectSubmitButton = document.querySelector("#marker-select-submit");
 
 
 const gameBoardDisplay = document.querySelector(".board");
@@ -20,20 +22,33 @@ let game = {
 		7, 8, 9
 	],
 	turn: "x",
-	playerOne: "",
-	playerTwo: ""
+	playerOne: {
+		name: "",
+		marker: ""
+	},
+	playerTwo: {
+		name: "",
+		marker: ""
+	}
 }
 
 
 const addPlayer = () => {
-	game.playerOne = document.querySelector("#player1").value;
-	game.playerTwo = document.querySelector("#player2").value;
+	game.playerOne.name = document.querySelector("#player1").value;
+	game.playerTwo.name = document.querySelector("#player2").value;
 	playerSelectDialog.close();
+	document.querySelector("#player1-marker-select").innerText = game.playerOne.name;
+	document.querySelector("#player2-marker-select").innerText = game.playerTwo.name;
 	markerSelectDialog.showModal();
 }
 
+const addMarkerToPlayer = () => {
+	document.querySelector("[name=player1-radio]").checked ? game.playerOne.marker = "x" : game.playerOne.marker = "o";
+	document.querySelector("[name=player2-radio]").checked ? game.playerTwo.marker = "x" : game.playerTwo.marker = "o";
+	markerSelectDialog.close();
+}
 
-const addMarker = (cell) => {
+const addMarkerToBoard = (cell) => {
 	const cellIndex = cell.classList[0];
 	game.board[cellIndex] = game.turn;
 	
@@ -73,8 +88,13 @@ const swapTurns = () => {
 playerSelectForm.addEventListener("submit", e => {
 	e.preventDefault();
 	addPlayer();
-});
+}, {once: true});
+
+markerSelectForm.addEventListener("submit", e => {
+	e.preventDefault();
+	addMarkerToPlayer();
+}, {once: true})
 
 cells.forEach(cell => {
-	cell.addEventListener("click", () => {addMarker(cell)}, {once: true});
+	cell.addEventListener("click", () => {addMarkerToBoard(cell)}, {once: true});
 })
