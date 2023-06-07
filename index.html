@@ -20,11 +20,22 @@
 		</form>
 	</dialog>
 	
-	<!-- <dialog class="marker-select">
-		<input type="text" name="player1" id="player1" placeholder="Player 1's Name">
-		<input type="text" name="player2" id="player2" placeholder="Player 2's Name">
+	<dialog class="marker-select" open>
+		<h2><span id="player1-marker-select"></span>'s Marker: </h2>
+		<input type="radio" value="player1-x" name="player1">
+		<label for="player1-x" class="x">X</label>
+		<input type="radio" value="player1-o" name="player1">
+		<label for="player1-o" class="o">O</label>
+
+		<h2><span id="player2-marker-select"></span>'s Marker: </h2>
+		<input type="radio" value="player1-x" name="player2">
+		<label for="player1-x" class="x">X</label>
+		<input type="radio" value="player1-o" name="player2">
+		<label for="player1-o" class="o">O</label>
+
 		<button class="next-button" id="next-button">Next</button>
-	</dialog> -->
+	</dialog>
+
 	<h1><span>X</span>'s Turn</h1>
 	<div class="board">
 		<p class="0"></p>

@@ -3,6 +3,7 @@ const o = "o";
 
 const playerSelectDialog = document.querySelector(".player-select");
 const playerSelectSubmitButton = document.querySelector("#next-button");
+const markerSelectDialog = document.querySelector(".marker-select");
 const gameBoardDisplay = document.querySelector(".board");
 const cells = document.querySelectorAll("p");
 const infoText = document.querySelector("span");
@@ -15,23 +16,28 @@ let game = {
 		4, 5, 6,
 		7, 8, 9
 	],
-
 	turn: "x",
+	playerOne: "",
+	playerTwo: ""
 }
 
-playerSelectSubmitButton.addEventListener("submit", () => { playerSelectDialog.close() });
+
+const addPlayer = () => {
+	playerSelectDialog.close();
+	markerSelectDialog.showModal();
+}
 
 
 const addMarker = (cell) => {
 	const cellIndex = cell.classList[0];
 	game.board[cellIndex] = game.turn;
-
+	
 	if (gameBoardDisplay.classList[1] === "over"){ return }
-
+	
 	cell.classList.add(game.turn);
 	cell.innerText = game.turn;
 	console.table(game.board);
-
+	
 	// Logic to check for game over
 	const includesAny = [1,2,3,4,5,6,7,8,9].some(element => game.board.includes(element));
 	if (
@@ -43,14 +49,14 @@ const addMarker = (cell) => {
 		(game.board[2] === game.board[5] && game.board[5] === game.board[8]) || // Check for vertical win
 		(game.board[0] === game.board[4] && game.board[4] === game.board[8]) || // Check for diagonal win
 		(game.board[2] === game.board[4] && game.board[4] === game.board[6]) // Check for diagonal win
-	) {
-		infoTextHeading.innerText = `Game Over! ${game.turn.toUpperCase()} WON!`;
-		gameBoardDisplay.classList.add("over");
+		) {
+			infoTextHeading.innerText = `Game Over! ${game.turn.toUpperCase()} WON!`;
+			gameBoardDisplay.classList.add("over");
 	}
 	else if (!includesAny){
 		infoTextHeading.innerText = `It's a Tie!`
 	}
-
+	
 	swapTurns();
 };
 
@@ -59,6 +65,7 @@ const swapTurns = () => {
 	infoText.innerText = game.turn.toUpperCase();
 }
 
+playerSelectSubmitButton.addEventListener("submit", addPlayer);
 
 cells.forEach((cell) => {
 	cell.addEventListener("click", () => {addMarker(cell)}, {once: true});
