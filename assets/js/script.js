@@ -14,6 +14,15 @@ const cells = document.querySelectorAll("p");
 const infoText = document.querySelector("#turn-indicator");
 const infoTextHeading = document.querySelector("h1");
 
+const playerOneXRadio = document.querySelector("#player1-x");
+const playerOneORadio = document.querySelector("#player1-o");
+const playerTwoXRadio = document.querySelector("#player2-x");
+const playerTwoORadio = document.querySelector("#player2-o");
+
+const playerOneXLabel = document.querySelector("[for=player1-x]");
+const playerOneOLabel = document.querySelector("[for=player1-o]");
+const playerTwoXLabel = document.querySelector("[for=player2-x]");
+const playerTwoOLabel = document.querySelector("[for=player2-o]");
 
 let game = {
 	board: [
@@ -101,4 +110,22 @@ markerSelectForm.addEventListener("submit", e => {
 
 cells.forEach(cell => {
 	cell.addEventListener("click", () => {addMarkerToBoard(cell)}, {once: true});
+})
+
+
+// Gonna make this cleaner later
+playerOneXLabel.addEventListener("click", e =>{
+	playerTwoORadio.checked = true;
+})
+
+playerOneOLabel.addEventListener("click", e =>{
+	playerTwoXRadio.checked = true;
+})
+
+playerTwoXLabel.addEventListener("click", e =>{
+	playerOneORadio.checked = true;
+})
+
+playerTwoOLabel.addEventListener("click", e =>{
+	playerOneXRadio.checked = true;
 })
