@@ -7,6 +7,7 @@ const playerSelectSubmitButton = document.querySelector("#next-button");
 const markerSelectDialog = document.querySelector(".marker-select");
 const markerSelectForm = document.querySelector("#marker-select-dialog form");
 const markerSelectSubmitButton = document.querySelector("#marker-select-submit");
+const restartGameButton = document.querySelector(".play-again");
 
 
 const gameBoardDisplay = document.querySelector(".board");
@@ -60,6 +61,10 @@ const addMarkerToPlayer = () => {
 	infoText.innerText = (game.playerOne.marker === "x") ? game.playerOne.name : game.playerTwo.name;
 }
 
+const restartGame = () => {
+	window.location.reload();
+}
+
 const addMarkerToBoard = (cell) => {
 	const cellIndex = cell.classList[0];
 	game.board[cellIndex] = game.turn;
@@ -85,9 +90,11 @@ const addMarkerToBoard = (cell) => {
 			let winner = (game.turn === game.playerOne.marker) ? game.playerOne : game.playerTwo;
 			infoTextHeading.innerText = `Game Over! ${winner.name} WON!`;
 			gameBoardDisplay.classList.add("over");
+			restartGameButton.style.display = "block";
 		}
 		else if (!includesAny){
 			infoTextHeading.innerText = `It's a Tie!`
+			restartGameButton.style.display = "block";
 		}
 	
 	swapTurns();
@@ -129,3 +136,6 @@ playerTwoXLabel.addEventListener("click", e =>{
 playerTwoOLabel.addEventListener("click", e =>{
 	playerOneXRadio.checked = true;
 })
+
+// Restarting game on button click
+restartGameButton.addEventListener("click", restartGame);
