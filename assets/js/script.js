@@ -73,7 +73,6 @@ const addMarkerToBoard = (cell) => {
 	
 	cell.classList.add(game.turn);
 	cell.innerText = game.turn;
-	console.table(game.board);
 	
 	// Logic to check for game over
 	const includesAny = [1,2,3,4,5,6,7,8,9].some(element => game.board.includes(element));
