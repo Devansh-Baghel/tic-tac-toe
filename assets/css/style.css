@@ -72,9 +72,6 @@ body {
 .player-select input:focus {
   outline: 2px solid var(--green);
 }
-.player-select ::-webkit-backdrop {
-  background-color: var(--light-green);
-}
 .player-select ::backdrop {
   background-color: var(--light-green);
 }
@@ -121,7 +118,6 @@ button:hover {
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .marker-select form input {
@@ -159,7 +155,6 @@ h1 {
   border-radius: 30px;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .board .x:hover,
@@ -178,4 +173,19 @@ h1 {
 p:hover {
   opacity: 70%;
   cursor: pointer;
+}
+
+.footer {
+  border-radius: 20px;
+  text-align: center;
+  width: 300px;
+  padding: 10px;
+  margin-top: 30px;
+  background-color: var(--green);
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }/*# sourceMappingURL=style.css.map */
